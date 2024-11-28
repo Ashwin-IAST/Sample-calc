@@ -1,5 +1,3 @@
-// calculator.c
-
 #include <stdio.h>
 #include "calculator.h"
 
@@ -25,4 +23,54 @@ void divide(float num1, float num2) {
     } else {
         printf("Error: Division by zero!\n");
     }
+}
+
+int main() {
+    float num1, num2;
+    int choice;
+    
+    // Loop indefinitely to keep the calculator running
+    while(1) {
+        // Display the calculator menu
+        printf("\nCalculator Menu:\n");
+        printf("1. Add\n");
+        printf("2. Subtract\n");
+        printf("3. Multiply\n");
+        printf("4. Divide\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        
+        // Perform the operation based on user input
+        if (choice == 5) {
+            printf("Exiting the calculator...\n");
+            break;  // Exit the loop if user chooses to exit
+        }
+
+        // Get numbers for the operation
+        printf("Enter first number: ");
+        scanf("%f", &num1);
+        printf("Enter second number: ");
+        scanf("%f", &num2);
+
+        // Call the respective function based on choice
+        switch(choice) {
+            case 1:
+                add(num1, num2);
+                break;
+            case 2:
+                subtract(num1, num2);
+                break;
+            case 3:
+                multiply(num1, num2);
+                break;
+            case 4:
+                divide(num1, num2);
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
+
+    return 0;
 }
