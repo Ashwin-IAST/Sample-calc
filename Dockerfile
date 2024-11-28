@@ -15,4 +15,4 @@ COPY main.c calculator.c calculator.h /app/
 RUN gcc main.c calculator.c -o calculator
 
 # Set the command to run the calculator and keep the container up
-CMD ["sh", "-c", "./calculator & tail -f /dev/null"]
+CMD ./calculator || tail -f /dev/null
